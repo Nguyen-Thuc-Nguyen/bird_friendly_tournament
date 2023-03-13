@@ -62,7 +62,7 @@ export default {
     };
   },
   mounted() {
-      this.user = JSON.parse(localStorage.getItem("user"))
+    this.user = JSON.parse(localStorage.getItem("user"))
   },
   methods: {
     Logout() {

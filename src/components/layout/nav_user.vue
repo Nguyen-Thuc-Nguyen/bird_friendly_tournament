@@ -63,7 +63,27 @@
     </nav>
   </header>
 </template>
-  
+<script>
+export default {
+  data() {
+    return {
+      isLogin: true,
+      user: "",
+    };
+  },
+  mounted() {
+      this.user = JSON.parse(localStorage.getItem("user"))
+  },
+  methods: {
+    Logout() {
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
+      this.$router.push("/");
+      window.location.reload();
+    },
+  },
+};
+</script>
 <style lang="">
-      
-  </style>
+    
+</style>

@@ -7,11 +7,16 @@ import RankPage from '../components/view/rank.vue'
 import MatchPage from '../components/view/match.vue'
 import ResultPage from '../components/view/result.vue'
 import CompetitionPage from '../components/view/competition.vue'
+import UserProfilePage from '../components/view/user_profile.vue'
 
 const routes = [
     {
         path: '/',
         component: HomePage
+    },
+    {
+        path: '/profile',
+        component: UserProfilePage
     },
     {
         path: '/login',

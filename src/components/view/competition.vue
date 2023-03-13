@@ -10,37 +10,77 @@
                       <img src="src/assets/images/signin.jpg" height=240 class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                      <h4 class="card-title">Bậc bạc</h4>
+                      <h3 class="card-title">Phòng 1</h3>
+                      <h7 class="card-subtitle">Nguyen123</h7>
+                      <p class="card-text">
+                        Loại chim: Chim sẻ
+                      </p>
+                      <p class="card-text">
+                        Cấp bậc: Đồng
+                      </p>
+                      <p class="card-text">
+                        Thể loại: Theo Bậc
+                      </p>
                     </div>
                   </div>
                 </div>
                 <div class="col">
                   <div class="card shadow" style="width: 90%;">
                     <a href="details" class="post-thumb" target="_blank">
-                      <img src="src/assets/images/signin.jpg" height=240  class="card-img-top" alt="...">
+                      <img src="src/assets/images/signin.jpg" height=240 class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                      <h4 class="card-title">Bậc vàng</h4>
+                      <h3 class="card-title">Phòng 1</h3>
+                      <h7 class="card-subtitle">Nguyen123</h7>
+                      <p class="card-text">
+                        Loại chim: Chim sẻ
+                      </p>
+                      <p class="card-text">
+                        Cấp bậc: Đồng
+                      </p>
+                      <p class="card-text">
+                        Thể loại: Theo Bậc
+                      </p>
                     </div>
                   </div>
                 </div>
                 <div class="col">
                   <div class="card shadow" style="width: 90%;">
                     <a href="details" class="post-thumb" target="_blank">
-                      <img src="src/assets/images/signin.jpg" height=240  class="card-img-top" alt="...">
+                      <img src="src/assets/images/signin.jpg" height=240 class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                      <h4 class="card-title">Bậc bạch kim</h4>
+                      <h3 class="card-title">Phòng 1</h3>
+                      <h7 class="card-subtitle">Nguyen123</h7>
+                      <p class="card-text">
+                        Loại chim: Chim sẻ
+                      </p>
+                      <p class="card-text">
+                        Cấp bậc: Đồng
+                      </p>
+                      <p class="card-text">
+                        Thể loại: Theo Bậc
+                      </p>
                     </div>
                   </div>
                 </div>
                 <div class="col">
                   <div class="card shadow" style="width: 90%;">
                     <a href="details" class="post-thumb" target="_blank">
-                      <img src="src/assets/images/signin.jpg" height=240  class="card-img-top" alt="...">                     
-                   </a>
+                      <img src="src/assets/images/signin.jpg" height=240 class="card-img-top" alt="...">
+                    </a>
                     <div class="card-body">
-                      <h4 class="card-title">Bậc kim cương</h4>
+                      <h3 class="card-title">Phòng 1</h3>
+                      <h7 class="card-subtitle">Nguyen123</h7>
+                      <p class="card-text">
+                        Loại chim: Chim sẻ
+                      </p>
+                      <p class="card-text">
+                        Cấp bậc: Đồng
+                      </p>
+                      <p class="card-text">
+                        Thể loại: Theo Bậc
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -72,14 +112,14 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <form>
-              <div class="modal-header">
+              <div class="modal-header btn-success">
                 <h4 class="modal-title">Tạo phòng thi đấu</h4>
               </div>
               <div class="modal-body">
                 <input type="hidden">
                 <div class="form-group">
                   <label>Tên phòng đấu</label>
-                  <input type="text" name="name" class="form-control" required>
+                  <input type="text" name="name" class="form-control" placeholder="Nhập tên phòng" required>
                 </div>
                 <br>
                 <div class="form-group">
@@ -89,14 +129,28 @@
                 <br>
                 <div class="form-group">
                   <label>Loại chim</label>
-                  <input type="text" name="birdtype" class="form-control" required>
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Loại chim</option>
+                    <option value="1">Chim sẻ</option>
+                    <option value="2">Chim chào mào</option>
+                    <option value="3">Chim sáo</option>
+                  </select>
                 </div>
                 <br>
                 <div class="form-group">
                   <label>Khu vực</label>
-                  <input type="text" name="address" class="form-control" required>
+                  <input type="text" name="address" class="form-control" placeholder="Nhập khu vực" required>
                 </div>
-    
+                <br>
+                <div class="form-group">
+                  <label>Bậc Xếp hạng</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Cấp bậc</option>
+                    <option value="1">Đồng</option>
+                    <option value="2">Bạc</option>
+                    <option value="3">Vàng</option>
+                  </select>
+                </div>
               </div>
               <div class="modal-footer btn btn-light">
                 <input type="button" class="btn " data-bs-dismiss="modal" value="Hủy">
@@ -105,7 +159,7 @@
             </form>
           </div>
         </div>
-    </div>
+      </div>
 </template>
 <script>
 export default {
