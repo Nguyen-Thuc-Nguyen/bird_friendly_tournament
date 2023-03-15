@@ -17,8 +17,10 @@
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
           role="tab" aria-controls="nav-home" aria-selected="true">Thông tin cá nhân</button>
-        <button class="nav-link " id="nav-security-tab" data-bs-toggle="tab" data-bs-target="#nav-security" type="button"
-          role="tab" aria-controls="nav-security" aria-selected="true">Bảo mật</button>
+        <button class="nav-link " id="nav-bird-tab" data-bs-toggle="tab" data-bs-target="#nav-bird" type="button"
+          role="tab" aria-controls="nav-bird" aria-selected="true">Loại chim</button>
+        <button class="nav-link " id="nav-birdlist-tab" data-bs-toggle="tab" data-bs-target="#nav-birdlist" type="button"
+          role="tab" aria-controls="nav-birdlist" aria-selected="true">Danh sách chim</button>
       </div>
       <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
@@ -28,7 +30,7 @@
                 <div class="card mb-4 mb-xl-0">
                   <div class="card-header">Hình ảnh đại diện</div>
                   <div class="card-body text-center">
-                    <img class="img-account-profile rounded-circle mb-2" src="assets/images/user.jpg" alt="">
+                    <img class="img-account-profile rounded-circle mb-2" src="src/assets/images/user.jpg" alt="">
                     <div class="small font-italic text-muted mb-4">JPG hoặc PNG không được lớn hơn 5
                       MB
                     </div>
@@ -57,23 +59,9 @@
                       </div>
                       <div class="row gx-3 mb-3">
                         <div class="col-md-6">
-                          <label class="small mb-1" for="inputBird">Loại chim</label>
-                          <select class="form-select" aria-label="Default select example">
-                            <option selected>Loại chim</option>
-                            <option value="1">Chim sẻ</option>
-                            <option value="2">Chim chào mào</option>
-                            <option value="3">Chim én</option>
-                          </select>
-                        </div>
-                        <div class="col-md-6">
                           <label class="small mb-1" for="inputPhone">Số điện thoại</label>
                           <input class="form-control" id="inputPhone" type="tel" placeholder="Nhập số điện thoại">
                         </div>
-
-                      </div>
-                      <div class="mb-3">
-                        <label class="small mb-1" for="inputEmailAddress">Email </label>
-                        <input class="form-control" id="inputEmailAddress" type="email" placeholder="Nhập email">
                       </div>
                       <div class="mb-3">
                         <label class="small mb-1" for="inputLocation">Địa điểm</label>
@@ -87,44 +75,199 @@
             </div>
           </div>
         </div>
-        <div class="tab-pane fade" id="nav-security" role="tabpanel" aria-labelledby="nav-security-tab" tabindex="1">
-          <div class="card mb-4 mt-lg-5">
-            <h4 class="card-header">Thay đổi mật khẩu</h4>
-            <div class="card-body">
-              <form id="formChangePassword" method="POST" onsubmit="return false"
-                class="fv-plugins-bootstrap5 fv-plugins-framework">
-                <div class="alert alert-warning" role="alert">
-                  <h6 class="alert-heading fw-bold mb-1">Đảm bảo tuân thủ theo qui tắc sau:
-                  </h6>
-                  <span>- Tối thiểu 8 chữ cái in hoa &amp; ký tự đặc biệt</span>
-                </div>
-                <div class="row">
-                  <div class="mb-3 col-12 col-sm-6 form-password-toggle fv-plugins-icon-container">
-                    <label class="form-label" for="newPassword">Mật khẩu mới</label>
-                    <div class="input-group input-group-merge has-validation">
-                      <input class="form-control" type="password" id="newPassword" name="newPassword"
-                        placeholder="············">
-                      <span class="input-group-text cursor-pointer"><i class="fa-regular fa-eye-slash"></i></span>
+        <div class="tab-pane fade" id="nav-bird" role="tabpanel" aria-labelledby="nav-bird-tab" tabindex="1">
+          <div class="container-xl px-4 mt-4">
+            <div class="row">
+              <div class="col-xl-4">
+                <div class="card mb-4 mb-xl-0">
+                  <div class="card-header">Hình ảnh Chim</div>
+                  <div class="card-body text-center">
+                    <img class="img-account-profile rounded-circle mb-2" src="src/assets/images/chimse.jpg" alt="">
+                    <div class="small font-italic text-muted mb-4">JPG hoặc PNG không được lớn hơn 5
+                      MB
                     </div>
-                    <div class="fv-plugins-message-container invalid-feedback"></div>
-                  </div>
-
-                  <div class="mb-3 col-12 col-sm-6 form-password-toggle fv-plugins-icon-container">
-                    <label class="form-label" for="confirmPassword">Xác nhận mật khẩu</label>
-                    <div class="input-group input-group-merge has-validation">
-                      <input class="form-control" type="password" name="confirmPassword" id="confirmPassword"
-                        placeholder="············">
-                      <span class="input-group-text cursor-pointer"><i class="fa-regular fa-eye-slash"></i></span>
-                    </div>
-                    <div class="fv-plugins-message-container invalid-feedback"></div>
-                  </div>
-                  <div>
-                    <button type="submit" class="btn btn-primary me-2">Thay đổi mật khẩu</button>
+                    <button class="btn btn-primary" type="button">Sửa hình ảnh</button>
                   </div>
                 </div>
-                <input type="hidden">
-              </form>
+              </div>
+              <div class="col-xl-8">
+                <div class="card mb-4">
+                  <div class="card-header">Thông tin chim</div>
+                  <div class="card-body">
+                    <form>
+                      <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                          <label class="small mb-1" for="inputBirdName">Tên chim</label>
+                          <input class="form-control" id="inputBirdName" type="text" placeholder="Nhập tên">
+                        </div>
+                        <div class="col-md-6">
+                          <label class="small mb-1" for="inputBirdType">Loại chim</label>
+                          <input class="form-control" id="inputBirdType" type="text" placeholder="Nhập Loại chim">
+                        </div>
+                      </div>
+                      <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                          <label class="small mb-1" for="inputBirdName">Cấp bậc</label>
+                          <select class="form-select">
+                            <option selected>Cấp bậc</option>
+                            <option value="1">Đồng</option>
+                            <option value="2">Bạc</option>
+                            <option value="3">Vàng</option>
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="small mb-1" for="inputBirdType">Loại chim</label>
+                          <input class="form-control" id="inputBirdType" type="text" placeholder="Nhập Loại chim">
+                        </div>
+                      </div>
+                      <button class="btn btn-primary ml-5" type="button">Lưu thông tin</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-birdlist" role="tabpanel" aria-labelledby="nav-birdlist-tab" tabindex="2">
+          <div class="container-xl px-4 mt-4">
+            <table class="table manage-candidates-top mb-0">
+              <thead>
+                <tr>
+                  <th>Hình ảnh</th>
+                  <th class="text-center">Loại chim</th>
+                  <th class="action text-right txtf">Thông tin</th>
+                </tr>
+              </thead>
+              <br>
+              <tbody>
+                <tr class="candidates-list">
+                  <td class="title">
+                    <div class="thumb small-img">
+                      <img class="img-fluid" src="src/assets/images/thidauad.jpg" alt="">
+                    </div>
+                  </td>
+                  <td class="candidate-list-favourite-time text-center">
+                    <div class="candidate-list-details">
+                      <div class="candidate-list-info">
+                        <div class="candidate-list-title">
+                          Chim sẻ
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <ul class="list-unstyled mb-0 d-flex justify-content-end">
+
+                      <li>
+                        <button class="nav-link " id="nav-bird-tab" data-bs-toggle="tab" data-bs-target="#nav-bird"
+                          type="button" aria-controls="nav-bird" aria-selected="true"><i class="far fa-eye"></i></button>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="candidates-list">
+                  <td class="title">
+                    <div class="thumb small-img">
+                      <img class="img-fluid" src="src/assets/images/thidauad.jpg" alt="">
+                    </div>
+                  </td>
+                  <td class="candidate-list-favourite-time text-center">
+                    <div class="candidate-list-details">
+                      <div class="candidate-list-info">
+                        <div class="candidate-list-title">
+                          Chim sẻ
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <ul class="list-unstyled mb-0 d-flex justify-content-end">
+
+                      <li>
+                        <button class="nav-link " id="nav-bird-tab" data-bs-toggle="tab" data-bs-target="#nav-bird"
+                          type="button" aria-controls="nav-bird" aria-selected="true"><i class="far fa-eye"></i></button>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+
+                <tr class="candidates-list">
+                  <td class="title">
+                    <div class="thumb small-img">
+                      <img class="img-fluid" src="src/assets/images/thidauad.jpg" alt="">
+                    </div>
+                  </td>
+                  <td class="candidate-list-favourite-time text-center">
+                    <div class="candidate-list-details">
+                      <div class="candidate-list-info">
+                        <div class="candidate-list-title">
+                          Chim sẻ
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <ul class="list-unstyled mb-0 d-flex justify-content-end">
+
+                      <li>
+                        <button class="nav-link " id="nav-bird-tab" data-bs-toggle="tab" data-bs-target="#nav-bird"
+                          type="button" aria-controls="nav-bird" aria-selected="true"><i class="far fa-eye"></i></button>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="candidates-list">
+                  <td class="title">
+                    <div class="thumb small-img">
+                      <img class="img-fluid" src="src/assets/images/thidauad.jpg" alt="">
+                    </div>
+                  </td>
+                  <td class="candidate-list-favourite-time text-center">
+                    <div class="candidate-list-details">
+                      <div class="candidate-list-info">
+                        <div class="candidate-list-title">
+                          Chim sẻ
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <ul class="list-unstyled mb-0 d-flex justify-content-end">
+
+                      <li>
+                        <button class="nav-link " id="nav-bird-tab" data-bs-toggle="tab" data-bs-target="#nav-bird"
+                          type="button" aria-controls="nav-bird" aria-selected="true"><i class="far fa-eye"></i></button>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="candidates-list">
+                  <td class="title">
+                    <div class="thumb small-img">
+                      <img class="img-fluid" src="src/assets/images/thidauad.jpg" alt="">
+                    </div>
+                  </td>
+                  <td class="candidate-list-favourite-time text-center">
+                    <div class="candidate-list-details">
+                      <div class="candidate-list-info">
+                        <div class="candidate-list-title">
+                          Chim sẻ
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <ul class="list-unstyled mb-0 d-flex justify-content-end">
+
+                      <li>
+                        <button class="nav-link " id="nav-bird-tab" data-bs-toggle="tab" data-bs-target="#nav-bird"
+                          type="button" aria-controls="nav-bird" aria-selected="true"><i class="far fa-eye"></i></button>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

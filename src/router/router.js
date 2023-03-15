@@ -8,7 +8,8 @@ import MatchPage from '../components/view/match.vue'
 import ResultPage from '../components/view/result.vue'
 import CompetitionPage from '../components/view/competition.vue'
 import UserProfilePage from '../components/view/user_profile.vue'
-
+import CompetitionRoomPage from '../components/view/competition_room.vue'
+import AdminPage from '../components/view/admin.vue'
 const routes = [
     {
         path: '/',
@@ -41,11 +42,18 @@ const routes = [
     {
         path: '/competition',
         component: CompetitionPage
+    },
+    {
+        path: '/admin',
+        component: AdminPage
+    },
+    {
+        path: '/competition-room',
+        component: CompetitionRoomPage
     }
 ]
-
 const router = createRouter({
-    history: createWebHistory(), 
+    history: createWebHistory(),
     routes
 })
 

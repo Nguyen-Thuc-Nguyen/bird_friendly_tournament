@@ -6,11 +6,11 @@
               <div class="row row-cols-1 row-cols-md-2 g-4">
                 <div class="col">
                   <div class="card shadow" style="width: 90%;">
-                    <a href="details" class="post-thumb" target="_blank">
+                    <a href="competition-room" class="post-thumb" target="_blank">
                       <img src="src/assets/images/signin.jpg" height=240 class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                      <h3 class="card-title">Phòng 1</h3>
+                      <h2 class="card-title">Phòng 1</h2>
                       <h7 class="card-subtitle">Nguyen123</h7>
                       <p class="card-text">
                         Loại chim: Chim sẻ
@@ -26,11 +26,11 @@
                 </div>
                 <div class="col">
                   <div class="card shadow" style="width: 90%;">
-                    <a href="details" class="post-thumb" target="_blank">
+                    <a href="competition-room" class="post-thumb" target="_blank">
                       <img src="src/assets/images/signin.jpg" height=240 class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                      <h3 class="card-title">Phòng 1</h3>
+                      <h2 class="card-title">Phòng 1</h2>
                       <h7 class="card-subtitle">Nguyen123</h7>
                       <p class="card-text">
                         Loại chim: Chim sẻ
@@ -46,11 +46,11 @@
                 </div>
                 <div class="col">
                   <div class="card shadow" style="width: 90%;">
-                    <a href="details" class="post-thumb" target="_blank">
+                    <a href="competition-room" class="post-thumb" target="_blank">
                       <img src="src/assets/images/signin.jpg" height=240 class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                      <h3 class="card-title">Phòng 1</h3>
+                      <h2 class="card-title">Phòng 1</h2>
                       <h7 class="card-subtitle">Nguyen123</h7>
                       <p class="card-text">
                         Loại chim: Chim sẻ
@@ -66,11 +66,11 @@
                 </div>
                 <div class="col">
                   <div class="card shadow" style="width: 90%;">
-                    <a href="details" class="post-thumb" target="_blank">
+                    <a href="competition-room" class="post-thumb" target="_blank">
                       <img src="src/assets/images/signin.jpg" height=240 class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                      <h3 class="card-title">Phòng 1</h3>
+                      <h2 class="card-title">Phòng 1</h2>
                       <h7 class="card-subtitle">Nguyen123</h7>
                       <p class="card-text">
                         Loại chim: Chim sẻ

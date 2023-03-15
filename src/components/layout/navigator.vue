@@ -29,7 +29,7 @@
             </li>
           </ul>
         </div>
-        <div class="d-flex">
+        <div class="d-flex" v-if="this.user == null">
           <ul class="navbar-nav">
             <li class="nav-item">
               <router-link class="nav-link highlight" to="/register">Đăng Ký</router-link>
@@ -37,16 +37,34 @@
             <li class="nav-item">
               <router-link class="nav-link highlight" to="/login">Đăng Nhập</router-link>
             </li>
-            <!-- <li v-else-if="$router.currentRoute.path !='/'" class="">
-              <div class="dropdown">
-                <div class="dropbtn">{{ user.username}} User001</div>
-                <div class="dropdown-content">
-                  <a @click.prevent="Logout">
-                    <span>Đăng Xuất</span>
+          </ul>
+        </div>
+        <div class="d-flex" v-else>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <div class="dropdown show ">
+                <button class="btn user-dropdown nav-link btn-light dropdown-toggle" type="button" id="dropdownMenuLink"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="user-icon"><i class="fa-solid fa-user"></i> Tài khoản</div>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="">
+
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <div class="user-icon"><i class="fa-solid fa-calendar-days"></i> Lịch thi
+                      đấu</div>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <div class="user-icon"><i class="fa-solid fa-ranking-star"></i> Xếp hạng
+                    </div>
+                  </a>
+                  <a class="dropdown-item" @click.prevent="Logout">
+                    <div class="user-icon"> <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</div>
                   </a>
                 </div>
               </div>
-            </li> -->
+            </li>
           </ul>
         </div>
       </div>
