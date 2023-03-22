@@ -1,4 +1,4 @@
-<template>
+<template lang="">
   <header>
     <nav class="navbar navbar-expand-md fixed-top">
       <div class="container-fluid">
@@ -22,10 +22,10 @@
               <router-link class="nav-link" to="/result">Kết Quả</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/rank">Bảng Xếp Hạng</router-link>
+              <router-link class="nav-link" to="/rank">Xếp hạng</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/competition">Thi đấu</router-link>
+              <router-link class="nav-link" to="/competition-room">Thi đấu</router-link>
             </li>
           </ul>
         </div>
@@ -43,24 +43,16 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <div class="dropdown show ">
-                <button class="btn user-dropdown nav-link btn-light dropdown-toggle" type="button" id="dropdownMenuLink"
+                <button class="btn user-dropdown nav-link btn-light dropdown-toggle"  type="button" id="dropdownMenuLink"
                   data-bs-toggle="dropdown" aria-expanded="false">
                   <div class="user-icon"><i class="fa-solid fa-user"></i> Tài khoản</div>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="">
-
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <div class="user-icon"><i class="fa-solid fa-calendar-days"></i> Lịch thi
-                      đấu</div>
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <div class="user-icon"><i class="fa-solid fa-ranking-star"></i> Xếp hạng
-                    </div>
-                  </a>
-                  <a class="dropdown-item" @click.prevent="Logout">
-                    <div class="user-icon"> <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</div>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">             
+                    <router-link class="dropdown-item" to="/profile" >
+                      <div class="user-icon"><i class="fa-solid fa-user"></i> Trang cá nhân</div> 
+                    </router-link>             
+                  <a class="dropdown-item" aria-labelledby="dropdownMenuLink" @click.prevent="Logout">
+                    <div class="user-icon"> <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</div>                    
                   </a>
                 </div>
               </div>
@@ -76,22 +68,19 @@ export default {
   data() {
     return {
       isLogin: true,
+      token: "",
       user: "",
     };
   },
   mounted() {
-    this.user = JSON.parse(localStorage.getItem("user"))
+    this.user = localStorage.getItem("token")
+    console.log("user", this.user)
   },
   methods: {
     Logout() {
-      localStorage.removeItem("user");
-      localStorage.removeItem("token");
-      this.$router.push("/");
-      window.location.reload();
-    },
+      localStorage.clear();
+      this.$router.push("/login").then(this.$router.go);
+    }
   },
 };
 </script>
-<style lang="">
-    
-</style>

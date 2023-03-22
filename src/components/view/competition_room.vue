@@ -1,108 +1,187 @@
-
-<template>
-    <div class="banner-details user-profile"
-        style="    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(src/assets/images/homeimg.jpg);">
-        <div class="container-fluid cnter-2">
-            <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb  justify-content-center py-0 mb-4">
-                    <li class="breadcrumb-item">
-                        <RouterLink class="link-success" to="/competition">Thi đấu</RouterLink>
-                    </li>
-                    <li class="breadcrumb-item " aria-current="page">Chi tiết</li>
-                </ol>
-            </nav>
-            <h1 class="bannerh1">Chi tiết trận đấu</h1>
-            <br>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="article-event clearfix">
-                <div class="detail-event">
-                    <div class="col-sm-4">
-                        <h4 class="event-content-title">Thông tin phòng</h4>
-                        <p class="event-content-info">
-                            <span class="event-sub-content-title">Người thách đấu:</span>
-                            nguyen123
-                            <span class="event-sub-content-title">Loại chim của người thách đấu:</span>
-                            <a href="#">chim sẻ
-                            </a>
-                            <span class="event-sub-content-title">Người tham gia:</span>
-                            thanh123
-                            <span class="event-sub-content-title">Loại chim của tham gia:</span>
-                            <a href="#">chim sẻ
-                            </a>
-
-                        </p>
-                    </div>
-                    <div class="col-sm-4">
-                        <h4 class="event-content-title">Thông tin thi đấu</h4>
-                        <p class="event-content-info">
-
-                            <span class="event-sub-content-title">Ngày thi đấu:
-                                <em class="date">12/04/2023</em></span>
-                            <span class="event-sub-content-title">Điện thoại:</span>
-                            <a href="#" title="Liên hệ qua SĐT">081984551
-                            </a>
-
-                            <span class="event-sub-content-title">Email:</span>
-                            <a href="#" title="Liên hệ qua email">abc@gmail</a>
-                            <span class="event-sub-content-title">Địa chỉ:</span>
-                            <a href="#" target="_blank" title="">1 Nguyễn Đình Chiểu quận 3</a>
-                        </p>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <h4 class="event-content-title">Video xác nhận thi đấu</h4>
-                        <p class="event-content-info">
-                            <span class="event-sub-content-title">Video:</span>
-                            <br>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#videoConfirm">
-                                Xem video
-                            </button>
-                            <!-- Modal -->
-                        <div class="modal fade" id="videoConfirm" tabindex="-1" aria-labelledby="videoConfirm"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title" id="videoConfirm">Video xác nhận thi đấu</h4>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="ratio ratio-16x9">
-                                            <iframe src="https://www.youtube.com/embed/vlDzYIIOYmM" title="YouTube video"
-                                                allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Đóng</button>
-                                        <a href="admin.html"><button type="button" class="btn btn-primary">Xác
-                                                nhận</button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </p>
-                    </div>
-
-                </div>
-                <div class="row align-items-center justify-content-center" style="margin-top: 50px">
-                    <div class="col-2">
-                        <a href="#">
-                            <button class="btn btn-success">Chỉnh sửa</button>
-                        </a>
-                    </div>
-                    <div class="col-2">
-                        <a href="#">
-                            <button class="btn btn-success">Tham gia</button>
-                        </a>
-                    </div>
-                </div>
+<template lang="">
+    <main>
+        <div class="container-fluid homebox-2">
+          <div class="row">
+            <div class="col-lg-10">
+              <div class="row row-cols-1 row-cols-md-2 g-4">
+                  <CompetitionWaitingList v-bind:list="list"/>
+              </div>
             </div>
+            <div class="col-lg-2">
+              <button type="button" class="createbox" data-bs-toggle="modal" data-bs-target="#taoPhongDau">
+                <i class="fa-regular fa-plus"></i> Tạo phòng đấu
+              </button>
+            </div>
+            <div class="empty"></div>
+          </div>
         </div>
-    </div>
+      <div id="taoPhongDau" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form>
+              <div class="modal-header">
+                <h4 class="modal-title">Tạo phòng thi đấu</h4>
+              </div>
+              <div class="modal-body">
+                <input type="hidden">
+                <div class="form-group">
+                  <label>Thời gian</label>
+                  <input type="date" name="date" class="form-control" required v-model="date">
+                </div>
+                <br>
+                <div class="form-group">
+                  <label>Khu vực</label>
+                  <select class="form-select" v-model= placeId>
+                    <option
+                      v-for="(location, address) in locations"
+                      v-bind:key="address" v-bind:location='location'
+                    >
+                      {{ location.address }}
+                    </option>
+                  </select>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label>Loại chim</label>
+                  <select class="form-select" v-model='birdTypeId'>
+                    <option
+                      v-for="(type, name) in listBirdType"
+                      v-bind:key="name"
+                    >
+                      {{ type.name }}
+                    </option>
+                  </select>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label>Chim tham gia thi đấu</label>
+                  <select class="form-select" v-model='createBirdId'>
+                    <option
+                      v-for="(bird, index) in listBird"
+                      v-bind:key="index" v-bind:bird='bird'
+                    >
+                      {{ bird.name }}
+                    </option>
+                  </select>
+                </div>  
+              </div>
+              <div class="modal-footer btn btn-light">
+                <input type="button" class="btn" data-bs-dismiss="modal" value="Hủy">
+                <button type="button" class="btn btn-success" value="Tạo" @click.prevent='CreateMatch'>Tạo</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  </main>
 </template>
+<script>
+import axios from 'axios';
+import CompetitionWaitingList from './competition_waiting_list.vue'
+export default {
+  data() {
+    return {
+      date: "",
+      placeId: "",
+      birdTypeId: "",
+      createBirdId: "",
+      listBird: [],
+      list: [],
+      location: {
+        type: Object,
+        default: null
+      },
+      bird: {
+        type: Object,
+        default: null
+      },
+      listBirdType: [
+        {
+          "id": 1,
+          "name": "Chim cúc"
+        },
+        {
+          "id": 2,
+          "name": "Chim sơn ca"
+        },
+        {
+          "id": 3,
+          "name": "Chim hoàng yến"
+        },
+        {
+          "id": 4,
+          "name": "Chim họa mi"
+        },
+        {
+          "id": 5,
+          "name": "Chim khướu"
+        },
+        {
+          "id": 6,
+          "name": "Chim cu gáy"
+        }
+      ],
+      locations: [
+        {
+          "id": 1,
+          "address": "Quán CF thi đấu chim chuyên nghiệp Quận 1"
+        },
+        {
+          "id": 2,
+          "address": "Nhà thi đấu đa năng Quận 2"
+        },
+        {
+          "id": 3,
+          "address": "Công viên Hoàng Văn Út Quận 3"
+        },
+        {
+          "id": 4,
+          "address": "Quán CF 1986 Bình Khánh TP. Long Xuyên"
+        }
+      ]
+    };
+  },
+  mounted() {
+    axios.get("https://aspnetcore-staging.azurewebsites.net/competitions/").then(response => {
+      this.list = response.data.competitionRecords;
+      console.log("response:", response.data.competitionRecords)
+      console.log("competition list:", this.list)
+    })
+    if (localStorage.getItem("token")) {
+            this.token = localStorage.getItem("token")
+            console.log("token:", this.token)
+        }
+        axios.get("https://aspnetcore-staging.azurewebsites.net/me", {
+            headers: {
+                "Authorization": `Bearer ${this.token}`,
+            }
+
+        }).then(response => {
+            this.listBird = response.data.baseUserRecord.birdRecords;
+            console.log('list bird:', this.listBird)
+        })
+  },
+  methods: {
+    CreateMatch() {
+    axios.post(
+      "https://aspnetcore-staging.azurewebsites.net/competitions/",
+      {
+        date: this.date,
+        placeId: this.placeId,
+        birdTypeId: this.birdTypeId,
+        createBirdId: this.createBirdId
+      }).then((response) => {
+        this.$router.push('/competition-room');
+      }).catch((error) => {
+        window.alert("Thông tin trận đấu chưa chính xác.");
+      });
+    },
+  },
+  components: {
+    CompetitionWaitingList,
+  }
+}
+</script>
+<style lang="">
+    
+</style>

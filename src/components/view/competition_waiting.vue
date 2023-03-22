@@ -1,24 +1,6 @@
 <template lang="">
-  <!-- <div class="card shadow" style="width: 90%;">
-                    <a href="competition-room" class="post-thumb" target="_blank">
-                      <img src="src/assets/images/signin.jpg" height=240 class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body">
-                      <h2 class="card-title">Phòng 1</h2>
-                      <h7 class="card-subtitle">Nguyen123</h7>
-                      <p class="card-text">
-                        Loại chim: Chim sẻ
-                      </p>
-                      <p class="card-text">
-                        Cấp bậc: Đồng
-                      </p>
-                      <p class="card-text">
-                        Thể loại: Theo Bậc
-                      </p>
-                    </div>
-                  </div> -->
-    <div class="card shadow" style="width: 90%;">
-      <div class="card shadow" style="width: 90%;border-radius:15px">
+  <div class="col" v-if="competition.status == 'WaitingForOpponent'">
+    <div class="card shadow" style="width: 90%;border-radius:15px">
       <a href="#" class="post-thumb" target="_blank">
                       <img v-bind:src="competition.image" height=240 class="card-img-top" alt="...">  
                     </a>
@@ -58,6 +40,7 @@
           <router-link :to="{name:'competitionDetail', params:{id:competition.id}}"> <button class="join-in">Tham gia</button> </router-link>
         </div>
         </div>
+    </div>
 </template>
 <script>
 export default {

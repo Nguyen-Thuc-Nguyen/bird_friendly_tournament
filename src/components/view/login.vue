@@ -29,21 +29,23 @@
                   </label>
                 </div>
                 <div>
-                  <a href="#" style="text-decoration:none;" class="txt1">
+                  <a href="#" class="txt1">
                     Quên mật khẩu ?
                   </a>
                 </div>
               </div>
               <div class="row">
-                <div class="col-6 center login100-form-btn">
-                  <button class="login100-form-btn" @click='Login'>
+                <div class="col-5 center login100-form-btn">
+                  <button class="login100-form-btn" width=auto @click.prevent='Login'>
                     Đăng nhập
                   </button>
                 </div>
-                <div class="col-6 text-center ">
-                  <router-link  class="return-home login100-form-btn" to="/"> 
+                <div class="col-5 center login100-form-btn ">
+                  <button class="login100-form-btn"  width=auto>
+                  <router-link class="return-home"  to="/"> 
                     Trở về
                   </router-link>
+                </button>
                 </div>
               </div>
             </form>
@@ -58,36 +60,23 @@ export default {
     return {
       username: "",
       password: "",
-      token: "",
     };
   },
   methods: {
-    async Login() {
-      await fetch(
+    Login() {
+      axios.post(
         "https://aspnetcore-staging.azurewebsites.net/login",
         {
-          method: "POST",
-          body: JSON.stringify({
-            username: this.username,
-            password: this.password,
-          }),
-          headers: {
-            "Content-Type": "application/json;",
-          },
+          username: this.username,
+          password: this.password
         }).then((response) => {
-          console.log('response: ', response);
-          const tokenStr = response.data.token;
-          localStorage.setItem("token", tokenStr),
-            localStorage.setItem("user", JSON.stringify(response.data.data)),
-            this.$router.push('/');
-          window.location.reload();
+          const token = response.data.token
+          localStorage.setItem("token", token)
+          this.$router.push('/profile').then(this.$router.go);
         }).catch((error) => {
-          window.alert(error);
+          window.alert("Sai tài khoản hoặc mật khẩu");
         });
     },
   },
 };
 </script>
-<style lang="">
-    
-</style>

@@ -8,7 +8,7 @@
   <main>    
     <Navigator/>    
     <router-view/>
-    <Footer></Footer>
+    <Footer/>
   </main>
 </template>
 

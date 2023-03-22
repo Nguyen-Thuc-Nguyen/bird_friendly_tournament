@@ -262,6 +262,11 @@
 }
 
 .small-img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: auto;
+    object-fit: scale-down;
+}
+.icon1{
+    width: 25px;
+    height: auto;
 }

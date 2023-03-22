@@ -88,6 +88,7 @@ body {
   padding: 50px 100px 50px 100px;
 
 }
+
 .homebox-2 {
   background-color: rgb(243, 255, 245);
   height: fit-content;
@@ -104,4 +105,16 @@ body {
   width: 100%;
   border-radius: 5px;
   background-color: rgb(206, 255, 206);
+}
+
+.p-home {
+  color: white;
+}
+
+.cus {
+  text-align: left;
+  background-color: white;
+  border-radius: 15px;
+  padding:30px;
+  margin:3%;
 }

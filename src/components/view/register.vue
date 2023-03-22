@@ -11,15 +11,9 @@
             <form class="login100-form validate-form">
               <div class="wrap-input100 validate-input m-b-26" data-validate="Không bỏ trống !">
                 <span class="label-input100">Tài khoản</span>
-                <input class="input100" type="text" name="username" placeholder="Tài khoản">
+                <input class="input100" type="text" name="username" placeholder="Tài khoản" v-model='username'>
                 <span class="focus-input100"></span>
               </div>
-              <div class="wrap-input100 validate-input m-b-26" data-validate="Không bỏ trống !">
-                <span class="label-input100">Tên người dùng</span>
-                <input class="input100" type="text" name="name" placeholder="Họ & tên người dùng" v-model='username'>
-                <span class="focus-input100"></span>
-              </div>           
-    
               <div class="wrap-input100 validate-input m-b-18" data-validate="Không bỏ trống !">
                 <span class="label-input100">Mật Khẩu</span>
                 <input class="input100" type="password" name="pass" placeholder="Nhập mật khẩu" v-model='password'>
@@ -41,22 +35,22 @@
                 </div>
     
                 <div>
-                  <a href="#" style="text-decoration:none;" class="txt1">
+                  <a href="#" class="txt1">
                     Quên mật khẩu ?
                   </a>
                 </div>
               </div>
               <div class="row">
-                <div class="col-4 container-login100-form-btn">
-                  <button class="login100-form-btn" @click='register'>
+                <div class="col-6 container-login100-form-btn">
+                  <button class="login100-form-btn" @click.prevent='Register'>
                     Đăng ký
                   </button>
                 </div>
             </div>
-            <div class="col-5 text-center ">
-              <router-link  class="return-home login100-form-btn" to="/"> 
-                    Trở về
-                  </router-link>
+            <div class="col-6 text-center ">
+                <button class="login100-form-btn">
+                    <router-link class="return-home" to="/"> Trở về </router-link>
+                </button>
             </div>
             </form>
           </div>
@@ -65,36 +59,28 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
       username: "",
       password: "",
-      token: "",
+      email: "",
     };
   },
   methods: {
-    async Login() {
-      await fetch(
+    Register() {
+      axios.post(
         "https://aspnetcore-staging.azurewebsites.net/register",
         {
-          method: "POST",
-          body: JSON.stringify({
-            username: this.username,
-            password: this.password,
-            email: this.email,
-          }),
-          headers: {
-            "Content-Type": "text/plain",
-          },
+          username: this.username,
+          password: this.password,
+          email: this.email
         }).then((response) => {
-          console.log('response: ', response);
-          const tokenStr = response.data.token;
-          localStorage.setItem("token", tokenStr),
-            localStorage.setItem("user", JSON.stringify(response.data.data)),
-            this.$router.push('/');
-          window.location.reload();
-        }).catch((error) => {
+        console.log(response)
+        this.$router.push('/login');
+        // window.location.reload();
+      }).catch((error) => {
           window.alert(error);
         });
     },

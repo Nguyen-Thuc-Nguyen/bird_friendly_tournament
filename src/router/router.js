@@ -6,18 +6,16 @@ import RegisterPage from '../components/view/register.vue'
 import RankPage from '../components/view/rank.vue'
 import MatchPage from '../components/view/match.vue'
 import ResultPage from '../components/view/result.vue'
-import CompetitionPage from '../components/view/competition.vue'
-import UserProfilePage from '../components/view/user_profile.vue'
+import CompetitionRankPage from '../components/view/competition_rank.vue'
 import CompetitionRoomPage from '../components/view/competition_room.vue'
-import AdminPage from '../components/view/admin.vue'
+import CompetitionDetailsPage from '../components/view/competition_details.vue'
+import ProfilePage from '../components/view/profile.vue'
+import ErrorPage from '../components/view/error.vue'
+
 const routes = [
     {
         path: '/',
         component: HomePage
-    },
-    {
-        path: '/profile',
-        component: UserProfilePage
     },
     {
         path: '/login',
@@ -40,21 +38,33 @@ const routes = [
         component: ResultPage
     },
     {
-        path: '/competition',
-        component: CompetitionPage
-    },
-    {
-        path: '/admin',
-        component: AdminPage
-    },
-    {
         path: '/competition-room',
         component: CompetitionRoomPage
-    }
+    },
+    {
+        path: '/competition-rank',
+        component: CompetitionRankPage
+    },
+    {
+        path: '/competition-detail/:id',
+        component: CompetitionDetailsPage,
+        name: 'competitionDetail'
+    },
+    {
+        path: '/profile',
+        component: ProfilePage
+    },
+    { 
+        path: '/:pathMatch(.*)*', 
+        component: ErrorPage 
+    },
+    
+
 ]
+
 const router = createRouter({
-    history: createWebHistory(),
-    routes
+    history: createWebHistory(), 
+    routes: routes,
 })
 
 export default router

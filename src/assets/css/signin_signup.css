@@ -1,5 +1,7 @@
 .return-home {
     text-decoration: none;
+    color:white;
+    font-size: 16px;
 }
 .return-home:hover{
     color:white;
